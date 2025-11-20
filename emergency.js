@@ -13,6 +13,7 @@ let stage=document.getElementById('stage')
 let todo=document.getElementById('todo')
 let stat=document.getElementById('stat')
 let grid=document.getElementById('grid')
+let search=document.getElementById('search');
 let found=false
 
 
@@ -43,6 +44,7 @@ function getData(x)
             {
                 stat.style.display="none";
                 grid.style.display="none";
+                search.style.display="none";
                 document.getElementById('all').style="block";
                 names.textContent=value[i].name
                 stage.textContent=value[i].stage
