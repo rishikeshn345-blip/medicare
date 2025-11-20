@@ -1,6 +1,4 @@
 console.log('hello from javascript');
-
-// element refs
 const step1 = document.getElementById('step1');
 const step2 = document.getElementById('step2');
 const step3 = document.getElementById('step3');
@@ -25,37 +23,32 @@ async function findit() {
 
 async function getData(query) {
   const x = query.toLowerCase().trim();
-  // reset UI
   clearDisplay();
-  let found = false; // local per-search flag
+  let found = false;
 
   try {
     const resp = await fetch('emergency.json');
     if (!resp.ok) throw new Error('Network response not ok');
     const data = await resp.json();
 
-    // You can match against multiple fields: name, stage, todo or steps.
     for (let i = 0; i < data.length; i++) {
       const item = data[i];
-      // build a searchable string from relevant fields
       const searchable = [
         item.name,
         item.stage,
         item.step1, item.step2, item.step3, item.step4, item.step5,
         item.todo
       ]
-        .filter(Boolean)                // remove undefined/null
+        .filter(Boolean)    
         .join(' ')
         .toLowerCase();
 
       if (searchable.includes(x)) {
-        // hide other sections and show details
         if (stat) stat.style.display = 'none';
         if (grid) grid.style.display = 'none';
         if (searchSection) searchSection.style.display = 'none';
         if (allSection) allSection.style.display = 'block';
 
-        // fill fields (guarding for missing steps)
         names.textContent = item.name || '';
         stage.textContent = item.stage || '';
         step1.textContent = item.step1 || '';
@@ -66,7 +59,7 @@ async function getData(query) {
         todo.textContent = item.todo || '';
 
         found = true;
-        break; // remove if you want to show multiple matches
+        break; 
       }
     }
 
@@ -80,12 +73,10 @@ async function getData(query) {
 }
 
 function clearDisplay() {
-  // show main sections back if needed, hide details
   if (allSection) allSection.style.display = 'none';
   if (stat) stat.style.display = '';
   if (grid) grid.style.display = '';
   if (searchSection) searchSection.style.display = '';
-  // clear text content
   names.textContent = '';
   stage.textContent = '';
   step1.textContent = '';
