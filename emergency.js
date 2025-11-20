@@ -40,7 +40,7 @@ function getData(x)
         console.log(value)
         for(i=0;i<value.length;i++)
         {
-            if(x===value[i].name)
+            if(x===value[i].name.toLowerCase())
             {
                 stat.style.display="none";
                 grid.style.display="none";
