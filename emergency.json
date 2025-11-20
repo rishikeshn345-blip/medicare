@@ -9,6 +9,7 @@
         "step4":"This is step 4",
         "step5":"This is step 5"
     },
+<<<<<<< HEAD
 
     [
   {
@@ -532,5 +533,17 @@
     "step5": "Monitor breathing and provide reassurance"
   }
 
+=======
+    {
+        "name": "Heart Attack",
+        "todo": "Recognize and act quickly",
+        "stage": "Severe",
+        "step1": "Call emergency services (like 911) immediately. Tell them you suspect a heart attack and provide your exact location. Every minute matters - don't wait to see if symptoms improve. If possible, use a speakerphone so you can continue helping the person while talking to the operator.",
+        "step2": "Help the person sit down in a comfortable position, preferably on the floor with their back against a wall. This reduces strain on the heart and prevents injury if they collapse. Encourage them to stay as still as possible because movement can worsen the condition.",
+        "step3": "Loosen any tight clothing around their neck, chest, and waist. This helps them breathe more easily and improves blood circulation. If they feel cold or sweaty, cover them with a light blanket to keep body temperature stable.",
+        "step4": "Ask if they have any prescribed heart medication like aspirin or nitroglycerin. If they do and are conscious, help them take it according to their doctor's instructions. Do NOT give them food or drink, and do not force medication if they are unconscious, vomiting, or having difficulty swallowing.",
+        "step5": "Stay with the person and monitor their breathing closely. If they become unconscious and stop breathing, begin CPR immediately. Keep them calm and reassure them that help is coming. Watch for signs of worsening symptoms such as increased chest pain, pale skin, or confusion, and keep emergency services updated if the patient's condition changes."
+    }
+>>>>>>> 75a4e7313e031e5fbe6a4cc43d35ff9626d263f7
 
 ]

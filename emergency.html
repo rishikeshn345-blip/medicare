@@ -45,7 +45,7 @@
     .search{flex:1;background:var(--card);border-radius:10px;padding:10px 12px;border:1px solid #e6e9ef}
     .search input{border:0;outline:none;width:100%;font-size:14px;background:transparent}
     .call-btn{background:var(--primary);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
-
+    .call-btn:active{background-color: #10b981; color: #e6e9ef;}
     /* categories grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--gap);margin:8px 0 22px}
     .card{background:var(--card);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px;align-items:flex-start;box-shadow:0 6px 18px rgba(15,23,42,0.06);text-decoration:none;color:inherit}
@@ -86,7 +86,7 @@
       </div>
     </header>
 
-    <div class="search-row">
+    <div class="search-row" id="search">
       <div class="search" aria-hidden>
         <!-- non-functional search box - implement with JS later -->
         <input type="text" id="find" placeholder="Search emergencies, e.g. "aria-label="Search emergencies" />
@@ -181,17 +181,107 @@
           <div>If present, help them take it—but do not give other medicines.</div>
         </div>
       </div>
-
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>
 
+    <!--START FROM HERE-->
     <section id="choking" class="detail">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
         <div>
           <span class="badge">Choking</span>
+          <h2 style="margin:8px 0 0">Clear the Airway</h2>
+        </div>
+        <div class="severity">Severe • Act Fast</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <strong>1. Encourage coughing</strong>
+          <div>If they can cough, let them try to clear the airway.</div>
+        </div>
+        <div class="step">
+          <strong>2. Back blows and abdominal thrusts</strong>
+          <div>Perform five back blows, then five abdominal thrusts (Heimlich) if trained.</div>
+        </div>
+        <div class="step">
+          <strong>3. Call emergency services if not improving</strong>
+          <div>Get professional help immediately.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
+      </div>
+    </section>
+<!--End here-->
+ <section id="burns" class="detail">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <span class="badge">Burn</span>
+          <h2 style="margin:8px 0 0">Clear the Airway</h2>
+        </div>
+        <div class="severity">Severe • Act Fast</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <strong>1. Encourage coughing</strong>
+          <div>If they can cough, let them try to clear the airway.</div>
+        </div>
+        <div class="step">
+          <strong>2. Back blows and abdominal thrusts</strong>
+          <div>Perform five back blows, then five abdominal thrusts (Heimlich) if trained.</div>
+        </div>
+        <div class="step">
+          <strong>3. Call emergency services if not improving</strong>
+          <div>Get professional help immediately.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
+      </div>
+      </section>
+      <!--bleeding-->
+ <section id="bleeding" class="detail">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <span class="badge">Bleeding</span>
+          <h2 style="margin:8px 0 0">Clear the Airway</h2>
+        </div>
+        <div class="severity">Severe • Act Fast</div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <strong>1. Encourage coughing</strong>
+          <div>If they can cough, let them try to clear the airway.</div>
+        </div>
+        <div class="step">
+          <strong>2. Back blows and abdominal thrusts</strong>
+          <div>Perform five back blows, then five abdominal thrusts (Heimlich) if trained.</div>
+        </div>
+        <div class="step">
+          <strong>3. Call emergency services if not improving</strong>
+          <div>Get professional help immediately.</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+        <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
+      </div>
+    </section>
+  <!--drowing-->
+   <section id="drowning" class="detail">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div>
+          <span class="badge">Drowning</span>
           <h2 style="margin:8px 0 0">Clear the Airway</h2>
         </div>
         <div class="severity">Severe • Act Fast</div>
