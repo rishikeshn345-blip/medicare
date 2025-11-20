@@ -13,6 +13,7 @@ let stage=document.getElementById('stage')
 let todo=document.getElementById('todo')
 let stat=document.getElementById('stat')
 let grid=document.getElementById('grid')
+let found=false
 
 
 function findit()
@@ -51,11 +52,12 @@ function getData(x)
                 step4.textContent=value[i].step4
                 step5.textContent=value[i].step5
                 todo.textContent=value[i].todo
+                found=true
             }
-            else
-            {
-               window.alert(x+' was not found')
-            }
+        }
+        if(!found)
+        {
+            window.alert(x+' was not found')
         }
     })
     .catch(()=>{window.alert("Something went wrong!!!")})
