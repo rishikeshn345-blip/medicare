@@ -9,15 +9,528 @@
         "step4":"This is step 4",
         "step5":"This is step 5"
     },
-    {
-  "name": "heart attack",
-  "todo": "Recognize and act quickly",
-  "stage": "Severe",
-  "step1": "Call emergency services (like 911) immediately. Tell them you suspect a heart attack and provide your exact location. Every minute matters - don't wait to see if symptoms improve. If possible, use a speakerphone so you can continue helping the person while talking to the operator.",
-  "step2": "Help the person sit down in a comfortable position, preferably on the floor with their back against a wall. This reduces strain on the heart and prevents injury if they collapse. Encourage them to stay as still as possible because movement can worsen the condition.",
-  "step3": "Loosen any tight clothing around their neck, chest, and waist. This helps them breathe more easily and improves blood circulation. If they feel cold or sweaty, cover them with a light blanket to keep body temperature stable.",
-  "step4": "Ask if they have any prescribed heart medication like aspirin or nitroglycerin. If they do and are conscious, help them take it according to their doctor's instructions. Do NOT give them food or drink, and do not force medication if they are unconscious, vomiting, or having difficulty swallowing.",
-  "step5": "Stay with the person and monitor their breathing closely. If they become unconscious and stop breathing, begin CPR immediately. Keep them calm and reassure them that help is coming. Watch for signs of worsening symptoms such as increased chest pain, pale skin, or confusion, and keep emergency services updated if the patient's condition changes."
-}
+
+    [
+  {
+    "name": "Heart attack",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Help person sit down and rest in comfortable position",
+    "step3": "Loosen tight clothing around neck and waist",
+    "step4": "Ask if they have prescribed heart medication",
+    "step5": "Monitor breathing and be ready for CPR if needed"
+  },
+  {
+    "name": "Cardiac arrest",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Check responsiveness and breathing",
+    "step2": "Call emergency services or instruct someone to call",
+    "step3": "Begin chest compressions immediately - push hard and fast",
+    "step4": "Use AED if available - follow voice prompts",
+    "step5": "Continue CPR until help arrives or signs of life return"
+  },
+  {
+    "name": "Chest pain (angina)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services if pain is severe or worsening",
+    "step2": "Help person rest in comfortable position",
+    "step3": "Assist with prescribed angina medication if available",
+    "step4": "Loosen tight clothing around chest and neck",
+    "step5": "Monitor vital signs until help arrives"
+  },
+  {
+    "name": "Difficulty breathing",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Help person sit upright in comfortable position",
+    "step3": "Loosen tight clothing around neck and chest",
+    "step4": "Stay calm and reassure the person",
+    "step5": "Monitor breathing pattern and be ready for CPR if needed"
+  },
+  {
+    "name": "Asthma attack",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services if breathing doesn't improve quickly",
+    "step2": "Help person use their inhaler if available",
+    "step3": "Have person sit upright and lean forward slightly",
+    "step4": "Loosen tight clothing around neck and chest",
+    "step5": "Monitor breathing and stay with person until help arrives"
+  },
+  {
+    "name": "Severe allergic reaction (anaphylaxis)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Use epinephrine auto-injector if available",
+    "step3": "Help person lie down with legs elevated",
+    "step4": "Monitor breathing and be ready for CPR",
+    "step5": "Stay with person until emergency help arrives"
+  },
+  {
+    "name": "Choking (adult)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Ask if person is choking - if can't speak, act immediately",
+    "step2": "Perform abdominal thrusts (Heimlich maneuver)",
+    "step3": "Continue thrusts until object is dislodged",
+    "step4": "If unconscious, begin CPR",
+    "step5": "Call emergency services if object not dislodged quickly"
+  },
+  {
+    "name": "Choking (child)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Check if child can cough or speak",
+    "step2": "Perform back blows between shoulder blades",
+    "step3": "Perform chest thrusts if back blows don't work",
+    "step4": "Call emergency services if object not dislodged",
+    "step5": "Begin CPR if child becomes unconscious"
+  },
+  {
+    "name": "Drowning",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Remove person from water safely",
+    "step2": "Call emergency services immediately",
+    "step3": "Check breathing and responsiveness",
+    "step4": "Begin CPR if not breathing",
+    "step5": "Keep person warm and monitor until help arrives"
+  },
+  {
+    "name": "Hyperventilation",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Stay calm and speak reassuringly",
+    "step2": "Have person sit down in quiet area",
+    "step3": "Encourage slow, deep breathing",
+    "step4": "Do not use paper bag method",
+    "step5": "Seek medical help if symptoms persist or worsen"
+  },
+  {
+    "name": "COPD flare-up",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services if breathing severely affected",
+    "step2": "Help person use prescribed inhalers or nebulizer",
+    "step3": "Assist person to sit upright in comfortable position",
+    "step4": "Loosen tight clothing around chest",
+    "step5": "Monitor breathing and stay with person"
+  },
+  {
+    "name": "Severe respiratory infection",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services for breathing difficulty",
+    "step2": "Help person sit upright for easier breathing",
+    "step3": "Provide humidified air if possible",
+    "step4": "Monitor breathing pattern and oxygen levels",
+    "step5": "Keep person warm and comfortable"
+  },
+  {
+    "name": "Carbon monoxide poisoning",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Move person to fresh air immediately",
+    "step2": "Call emergency services",
+    "step3": "Check breathing and responsiveness",
+    "step4": "Begin CPR if not breathing",
+    "step5": "Do not re-enter contaminated area"
+  },
+  {
+    "name": "Stroke",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Use FAST test: Face, Arm, Speech, Time to call emergency",
+    "step2": "Call emergency services immediately",
+    "step3": "Keep person comfortable with head elevated",
+    "step4": "Do not give food, drink, or medication",
+    "step5": "Monitor breathing and note symptom onset time"
+  },
+  {
+    "name": "Seizure (convulsion)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services if seizure lasts over 5 minutes",
+    "step2": "Clear area of hard or sharp objects",
+    "step3": "Place something soft under head",
+    "step4": "Do not restrain or put anything in mouth",
+    "step5": "Roll onto side after seizure ends and monitor breathing"
+  },
+  {
+    "name": "Febrile seizure (children)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Place child on soft surface on their side",
+    "step2": "Do not restrain child or put anything in mouth",
+    "step3": "Time the seizure duration",
+    "step4": "Call emergency services if seizure lasts over 5 minutes",
+    "step5": "Cool child gently after seizure ends"
+  },
+  {
+    "name": "Fainting (syncope)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Check responsiveness and breathing",
+    "step2": "Position person flat on back with legs elevated",
+    "step3": "Loosen tight clothing around neck and waist",
+    "step4": "Do not give food or drink until fully alert",
+    "step5": "Seek medical attention if fainting recurs"
+  },
+  {
+    "name": "Head injury (minor)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Apply ice pack to reduce swelling",
+    "step2": "Monitor for signs of concussion",
+    "step3": "Keep person awake and monitored for first few hours",
+    "step4": "Watch for vomiting, confusion, or worsening headache",
+    "step5": "Seek medical attention if symptoms worsen"
+  },
+  {
+    "name": "Concussion",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services for severe symptoms",
+    "step2": "Keep person still and calm",
+    "step3": "Apply cold compress to head if no bleeding",
+    "step4": "Monitor breathing and consciousness level",
+    "step5": "Do not give medication without medical advice"
+  },
+  {
+    "name": "Traumatic brain injury (severe)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Keep person still and support head/neck",
+    "step3": "Monitor breathing and be ready for CPR",
+    "step4": "Do not remove helmet if present",
+    "step5": "Control any bleeding with gentle pressure"
+  },
+  {
+    "name": "Unconscious person (unknown cause)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Check responsiveness and breathing",
+    "step2": "Call emergency services immediately",
+    "step3": "Place in recovery position if breathing",
+    "step4": "Begin CPR if not breathing",
+    "step5": "Look for medical alert jewelry or identification"
+  },
+  {
+    "name": "Severe bleeding (arterial/venous)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Apply direct pressure to wound with clean cloth",
+    "step3": "Elevate injured area above heart level",
+    "step4": "Add more layers if blood soaks through",
+    "step5": "Keep person still and warm until help arrives"
+  },
+  {
+    "name": "Nosebleed",
+    "todo": "Recognize and act",
+    "stage": "Minor",
+    "step1": "Have person sit upright and lean forward",
+    "step2": "Pinch soft part of nose for 10-15 minutes",
+    "step3": "Apply ice pack to bridge of nose",
+    "step4": "Do not tilt head backward",
+    "step5": "Seek medical help if bleeding continues after 20 minutes"
+  },
+  {
+    "name": "Deep cuts / lacerations",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Apply direct pressure to control bleeding",
+    "step2": "Clean wound with running water if possible",
+    "step3": "Cover with sterile dressing",
+    "step4": "Seek medical attention for deep wounds",
+    "step5": "Watch for signs of infection"
+  },
+  {
+    "name": "Puncture wound",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Allow wound to bleed briefly to clean itself",
+    "step2": "Clean with running water and mild soap",
+    "step3": "Apply antibiotic ointment if available",
+    "step4": "Cover with sterile dressing",
+    "step5": "Seek medical attention for tetanus shot if needed"
+  },
+  {
+    "name": "Amputation (finger/limb)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Control bleeding with direct pressure",
+    "step3": "Elevate injured area",
+    "step4": "Wrap amputated part in clean, damp cloth and place in plastic bag",
+    "step5": "Keep amputated part cool but do not freeze"
+  },
+  {
+    "name": "Internal bleeding (suspected)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Keep person lying flat and still",
+    "step3": "Monitor breathing and consciousness",
+    "step4": "Keep person warm with blanket",
+    "step5": "Do not give food or drink"
+  },
+  {
+    "name": "Gunshot wound",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Apply direct pressure to bleeding areas",
+    "step3": "Do not remove embedded objects",
+    "step4": "Monitor breathing and be ready for CPR",
+    "step5": "Keep person still and warm until help arrives"
+  },
+  {
+    "name": "Stab wound",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Do not remove embedded object",
+    "step3": "Apply pressure around wound, not on object",
+    "step4": "Monitor breathing and consciousness",
+    "step5": "Keep person still and warm"
+  },
+  {
+    "name": "Animal bites (dog, cat)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Control bleeding with direct pressure",
+    "step2": "Clean wound thoroughly with soap and water",
+    "step3": "Apply antibiotic ointment if available",
+    "step4": "Cover with sterile dressing",
+    "step5": "Seek medical attention for rabies risk and infection"
+  },
+  {
+    "name": "Minor burns (first degree)",
+    "todo": "Recognize and act",
+    "stage": "Minor",
+    "step1": "Cool burn with cool running water for 10-15 minutes",
+    "step2": "Do not use ice or butter on burn",
+    "step3": "Apply aloe vera or burn cream if available",
+    "step4": "Cover loosely with sterile non-stick dressing",
+    "step5": "Watch for signs of infection"
+  },
+  {
+    "name": "Moderate burns (second degree)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Cool burn with cool running water for 10-20 minutes",
+    "step2": "Do not break blisters",
+    "step3": "Cover loosely with sterile non-stick dressing",
+    "step4": "Elevate burned area if possible",
+    "step5": "Seek medical attention for proper treatment"
+  },
+  {
+    "name": "Severe burns (third degree)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Do not remove burned clothing stuck to skin",
+    "step3": "Cover burn loosely with sterile non-stick dressing",
+    "step4": "Elevate burned area if possible",
+    "step5": "Monitor for shock and breathing difficulties"
+  },
+  {
+    "name": "Electrical burns",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Ensure power source is off before touching person",
+    "step2": "Call emergency services immediately",
+    "step3": "Check breathing and responsiveness",
+    "step4": "Cover burns with sterile dressing",
+    "step5": "Monitor for cardiac issues - be ready for CPR"
+  },
+  {
+    "name": "Chemical burns",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Brush off dry chemicals before flushing",
+    "step3": "Flush with cool running water for 15-20 minutes",
+    "step4": "Remove contaminated clothing carefully",
+    "step5": "Cover loosely with sterile dressing"
+  },
+  {
+    "name": "Sunburn (severe)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Move to shaded or indoor area immediately",
+    "step2": "Apply cool compresses or take cool bath",
+    "step3": "Apply aloe vera or moisturizing lotion",
+    "step4": "Drink plenty of water to prevent dehydration",
+    "step5": "Seek medical help for blisters, fever, or severe pain"
+  },
+  {
+    "name": "Smoke inhalation",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Move person to fresh air immediately",
+    "step2": "Call emergency services",
+    "step3": "Check breathing and responsiveness",
+    "step4": "Begin CPR if not breathing",
+    "step5": "Monitor for respiratory distress until help arrives"
+  },
+  {
+    "name": "Fracture (broken bone)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Keep injured area still and supported",
+    "step2": "Apply ice pack wrapped in cloth to reduce swelling",
+    "step3": "Elevate injured limb if possible",
+    "step4": "Do not try to straighten or realign bone",
+    "step5": "Seek medical attention for proper treatment"
+  },
+  {
+    "name": "Dislocation",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Keep injured area still and supported",
+    "step2": "Apply ice pack wrapped in cloth to reduce swelling",
+    "step3": "Do not try to put joint back in place",
+    "step4": "Seek immediate medical attention",
+    "step5": "Monitor circulation beyond injury site"
+  },
+  {
+    "name": "Sprain",
+    "todo": "Recognize and act",
+    "stage": "Minor",
+    "step1": "Rest injured area",
+    "step2": "Apply ice pack wrapped in cloth for 15-20 minutes",
+    "step3": "Use compression bandage to reduce swelling",
+    "step4": "Elevate injured area above heart level",
+    "step5": "Seek medical help if severe pain or unable to bear weight"
+  },
+  {
+    "name": "Strain",
+    "todo": "Recognize and act",
+    "stage": "Minor",
+    "step1": "Rest injured muscle",
+    "step2": "Apply ice pack wrapped in cloth for 15-20 minutes",
+    "step3": "Use compression bandage if helpful",
+    "step4": "Elevate injured area if possible",
+    "step5": "Apply heat after 48 hours for muscle relaxation"
+  },
+  {
+    "name": "Spinal injury",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Keep person still - do not move unless absolutely necessary",
+    "step3": "Support head and neck in position found",
+    "step4": "Monitor breathing and be ready for CPR",
+    "step5": "Do not remove helmet if present"
+  },
+  {
+    "name": "Pelvic injury",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Keep person still and do not move them",
+    "step3": "Monitor breathing and circulation",
+    "step4": "Keep person warm with blanket",
+    "step5": "Do not give food or drink"
+  },
+  {
+    "name": "Crushed limb",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Do not remove crushing object if recently applied",
+    "step3": "Control bleeding with direct pressure",
+    "step4": "Keep person still and warm",
+    "step5": "Monitor breathing and consciousness"
+  },
+  {
+    "name": "Swollen joint (possible infection/injury)",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Rest injured joint",
+    "step2": "Apply ice pack wrapped in cloth for 15-20 minutes",
+    "step3": "Elevate injured area above heart level",
+    "step4": "Use compression bandage if helpful",
+    "step5": "Seek medical attention for proper diagnosis"
+  },
+  {
+    "name": "Rib fracture",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Help person find comfortable breathing position",
+    "step2": "Apply ice pack to injured area",
+    "step3": "Encourage shallow breathing to prevent pneumonia",
+    "step4": "Seek medical attention for proper diagnosis",
+    "step5": "Monitor for breathing difficulties"
+  },
+  {
+    "name": "Road accident (vehicle collision)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Ensure scene is safe before approaching",
+    "step2": "Call emergency services immediately",
+    "step3": "Check all involved persons for responsiveness",
+    "step4": "Do not move injured persons unless in immediate danger",
+    "step5": "Provide first aid for visible injuries until help arrives"
+  },
+  {
+    "name": "Bike or scooter crash",
+    "todo": "Recognize and act",
+    "stage": "Moderate",
+    "step1": "Ensure scene is safe before approaching",
+    "step2": "Check person's responsiveness and breathing",
+    "step3": "Do not remove helmet unless necessary for breathing",
+    "step4": "Stabilize head and neck if spinal injury suspected",
+    "step5": "Call emergency services for serious injuries"
+  },
+  {
+    "name": "Fall from height",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Call emergency services immediately",
+    "step2": "Do not move person unless absolutely necessary",
+    "step3": "Stabilize head and neck in position found",
+    "step4": "Monitor breathing and consciousness",
+    "step5": "Control any visible bleeding with direct pressure"
+  },
+  {
+    "name": "Heavy object falling on person",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Ensure scene is safe before approaching",
+    "step2": "Call emergency services immediately",
+    "step3": "Check responsiveness and breathing",
+    "step4": "Do not remove object if still crushing",
+    "step5": "Provide first aid for visible injuries"
+  },
+  {
+    "name": "Workplace machinery injury",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Turn off machinery immediately if safe to do so",
+    "step2": "Call emergency services",
+    "step3": "Do not remove person from machinery if trapped",
+    "step4": "Control bleeding with direct pressure",
+    "step5": "Monitor breathing and consciousness until help arrives"
+  },
+  {
+    "name": "Getting trapped (hand in machine, etc.)",
+    "todo": "Recognize and act",
+    "stage": "Severe",
+    "step1": "Turn off power to machinery immediately",
+    "step2": "Call emergency services and fire department",
+    "step3": "Do not try to force person free",
+    "step4": "Keep person calm and still",
+    "step5": "Monitor breathing and provide reassurance"
+  }
+
 
 ]
