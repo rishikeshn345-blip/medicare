@@ -203,11 +203,14 @@ if(isset($_POST['submit']))
 {
   $name=$_POST['name'];
   $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
+  $name=strtolower($name);
   $phno=$_POST['phno'];
   $phno=filter_var($phno,FILTER_SANITIZE_SPECIAL_CHARS);
   $gender=$_POST['gender'];
   $address=$_POST['address'];
   $address=filter_var($address,FILTER_SANITIZE_SPECIAL_CHARS);
+  $age=$_POST['age'];
+  $age=filter_var($age,FILTER_SANITIZE_SPECIAL_CHARS);
   $password=$_POST['password'];
   $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
   $cpassword=$_POST['cpassword'];
