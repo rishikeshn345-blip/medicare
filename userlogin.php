@@ -197,11 +197,11 @@
     }
     else
     {
-      $sql="SELECT FROM users WHERE name='$name' AND password='$password'";
+      $sql="SELECT * FROM users WHERE name='$name' AND password='$password'";
       $result=$conn->query($sql);
       if($result->num_rows>0)
       {
-
+          echo "<script> window.location='home.php'</script>";
       }
       else
       {
