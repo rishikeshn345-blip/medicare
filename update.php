@@ -111,13 +111,13 @@ input:focus {
 
     <div>
       <label>New Working Hours</label>
-      <input type="text" name="nw" id="doctorTime" required placeholder="E.g. 10:00 AM - 5:00 PM">
+      <input type="text" name="nw" id="doctorTime" required placeholder="Increase or decrease the number of hours">
     </div>
 
     <button type="submit" name="submit" value="submit" class="btn">Update</button>
   </form>
 
-  <a href="hospital-manage-doctors.html" class="link">Back to Hospital Panel</a>
+  <a href="gate.php" class="link">Back to Hospital Panel</a>
 </div>
 </body>
 </html>
@@ -144,7 +144,7 @@ if(isset($_POST['submit']))
     $result=$conn->query($sql);
     if($result->num_rows>0)
     {
-      $sql="UPDATE TABLE doctors SET working='$nw' WHERE id='$id'";
+      $sql="UPDATE doctors SET working='$nw' WHERE id='$id'";
       if($conn->query($sql))
       {
         echo "<script>window.alert('Updated successfully')</script>";

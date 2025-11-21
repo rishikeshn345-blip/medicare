@@ -158,6 +158,7 @@ td {
     <div class="btn-section">
       <a href="doctregi.php"><button class="btn add-btn">Add Doctor</button></a>
       <a href=""><button class="btn remove-btn">Remove Doctor</button></a>
+      <a href="update.php"><button class="btn remove-btn">Update Doctor</button></a>
     </div>
 
     <!-- Table -->
