@@ -237,17 +237,26 @@ if(isset($_POST['submit']))
       }
       else
       {        
-        $sql = "INSERT INTO users (name, phno, password, address, gender, age, datetime)
-        VALUES ('$name', '$phno', '$password', '$address', '$gender', '$age', NOW())";
-        if($conn->query($sql))
+        $sql="SELECT * FROM users WHERE name='$name'";
+        $result=$conn->query($sql);
+        if($result->num_rows>0)
         {
-          echo "<script>window.alert('Registration Successful')</script>";
-          echo "<script> window.location='userlogin.php'</script>";
+          echo "<script>window.alert('Username already taken try again')</script>";
         }
         else
         {
-          echo "<script>window.alert('Something went wrong')</script>";
-        }
+          $sql = "INSERT INTO users (name, phno, password, address, gender, age, datetime)
+          VALUES ('$name', '$phno', '$password', '$address', '$gender', '$age', NOW())";
+          if($conn->query($sql))
+          {
+            echo "<script>window.alert('Registration Successful')</script>";
+            echo "<script> window.location='userlogin.php'</script>";
+          }
+          else
+          {
+            echo "<script>window.alert('Something went wrong')</script>";
+          }
+        }        
       }
     }
     $conn->close();
