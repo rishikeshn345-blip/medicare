@@ -98,34 +98,68 @@ input:focus {
 <div class="container">
   <h1>Update Working Time</h1>
 
-  <form onsubmit="updateTime(event)">
+  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <div>
       <label>Doctor ID</label>
-      <input type="text" id="doctorId" required placeholder="Enter Doctor ID">
+      <input type="text" name="id" id="doctorId" required placeholder="Enter Doctor ID">
     </div>
 
     <div>
       <label>Doctor Name</label>
-      <input type="text" id="doctorName" required placeholder="Enter Doctor Name">
+      <input type="text" name="name" id="doctorName" required placeholder="Enter Doctor Name">
     </div>
 
     <div>
       <label>New Working Hours</label>
-      <input type="text" id="doctorTime" required placeholder="E.g. 10:00 AM - 5:00 PM">
+      <input type="text" name="nw" id="doctorTime" required placeholder="E.g. 10:00 AM - 5:00 PM">
     </div>
 
-    <button type="submit" class="btn">Update</button>
+    <button type="submit" name="submit" value="submit" class="btn">Update</button>
   </form>
 
   <a href="hospital-manage-doctors.html" class="link">Back to Hospital Panel</a>
 </div>
-
-<script>
-function updateTime(e) {
-  e.preventDefault();
-  alert("Working Time Updated Successfully! (Demo)");
-}
-</script>
-
 </body>
 </html>
+
+<?php
+if(isset($_POST['submit']))
+{
+  $id=$_POST['id'];
+  $name=$_POST['name'];
+  $nw=$_POST['nw'];
+
+  $id=filter_var($id,FILTER_SANITIZE_SPECIAL_CHARS);
+  $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
+  $nw=filter_var($nw,FILTER_SANITIZE_SPECIAL_CHARS);
+
+  $conn=new mysqli("localhost","root","","health system");
+  if($conn->connect_errno)
+  {
+    die("Database connection failed");
+  }
+  else
+  {
+    $sql="SELECT * FROM doctors WHERE id='$id' AND name='$name'";
+    $result=$conn->query($sql);
+    if($result->num_rows>0)
+    {
+      $sql="UPDATE TABLE doctors SET working='$nw' WHERE id='$id'";
+      if($conn->query($sql))
+      {
+        echo "<script>window.alert('Updated successfully')</script>";
+      }
+      else
+      {
+        echo "<script>window.alert('Unable update')</script>";
+      }
+    }
+    else
+    {
+      echo "<script>window.alert('Id or Username did not match')</script>";
+    }
+  }
+  $conn->close();
+}
+
+?>
