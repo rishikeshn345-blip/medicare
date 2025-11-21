@@ -157,26 +157,39 @@ td {
     <!-- Buttons -->
     <div class="btn-section">
       <a href="doctregi.php"><button class="btn add-btn">Add Doctor</button></a>
-      <a href=""><button class="btn remove-btn">Remove Doctor</button></a>
+      <a href="delete.php"><button class="btn remove-btn">Remove Doctor</button></a>
       <a href="update.php"><button class="btn remove-btn">Update Doctor</button></a>
     </div>
-
-    <!-- Table -->
-    <table id="doctorTable">
-      <tr>
-        <th>Doctor Name</th>
-        <th>Department</th>
-        <th>Experience</th>
-      </tr>
-      <tr>
-        <td>Dr. John Carter</td>
-        <td>Cardiology</td>
-        <td>8 Years</td>
-      </tr>
-    </table>
-
-  </div>
-</div>
-
 </body>
 </html>
+<?php 
+$sql="SELECT * FROM doctors";
+$conn=new mysqli("localhost","root","","health system");
+if($conn->connect_error)
+{
+  die("Unable to connect to database!!!");
+  echo "<script>window.alert('Unable to connecct to database')</script>";
+}
+else
+{
+  $result=$conn->query($sql);
+  if($result->num_rows>0)
+  {
+    echo "<table id='doctorTable'>";
+    echo "<tr>";
+    echo "<th>Doctor Name</th>";
+    echo "<th>Department</th>";
+    echo "<th>Working hours</th>";
+    echo "</tr>";
+    while($row=$result->fetch_assoc())
+    {
+      echo "<tr>";
+      echo " <td>".$row['name']."</td>";
+      echo " <td>".$row['department']."</td>";
+      echo " <td>".$row['working']."</td>";
+      echo " </tr>";
+    }
+    echo " </table>";
+  }
+}
+?>

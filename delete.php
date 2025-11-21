@@ -98,34 +98,59 @@ input:focus {
 <div class="card">
   <h1>Delete Doctor</h1>
 
-  <form onsubmit="deleteDoctor(event)">
+  <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <div>
       <label>Doctor ID</label>
-      <input type="text" id="doctorId" required placeholder="Enter Doctor ID">
+      <input type="text" name="id" id="doctorId" required placeholder="Enter Doctor ID">
     </div>
 
     <div>
       <label>Doctor Name</label>
-      <input type="text" id="doctorName" required placeholder="Enter Doctor Name">
+      <input type="text" name="name" id="doctorName" required placeholder="Enter Doctor Name">
     </div>
 
-    <div>
-      <label>Department</label>
-      <input type="text" id="doctorDept" required placeholder="Enter Department">
-    </div>
-
-    <button type="submit" class="btn">Delete Doctor</button>
+    <button type="submit" name="submit" class="btn">Delete Doctor</button>
   </form>
 
   <a href="hospital-manage-doctors.html" class="link">Back to Hospital Panel</a>
 </div>
-
-<script>
-function deleteDoctor(e) {
-  e.preventDefault();
-  alert("Doctor Deleted Successfully! (Demo)");
-}
-</script>
-
 </body>
 </html>
+<?php 
+if(isset($_POST['submit']))
+{
+  $name=$_POST['name'];
+  $id=$_POST['id'];
+
+  $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
+  $id=filter_var($id,FILTER_SANITIZE_SPECIAL_CHARS);
+
+  $conn=new mysqli("localhost","root","","health singer");
+  if($conn->connect_error)
+  {
+    die("Connection failed");
+  }
+  else
+  {
+    $sql="SELECT * FROM doctors WHERE id='$id' AND name='$name'";
+    $result=$conn->query($sql);
+    if($result->num_rows>0)
+    {
+      $sql="DELETE FROM doctors WHERE id='$id'";
+      if($conn->query($sql))
+      {
+        echo "<script>window.alert('Deleted successfully')</script>";
+      }
+      else
+      {
+        echo "<script>window.alert('Unable to delete')</script>";
+      }
+    }
+    else
+    {
+      echo "<select>window.alert('Id or name is incorrect')</script>";
+    }
+  }
+}
+
+?>
