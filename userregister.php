@@ -170,6 +170,10 @@
             <input id="gender" type="radio" name="gender" value="femail" required>Female
           </div>
           <div>
+            <label for="address">Gender</label><br>
+            <input id="address" type="text" name="address" maxlength="100" required>
+          </div>
+          <div>
             <label for="password">Password</label><br>
             <input id="password" type="password" name="password" maxlength="25" required placeholder="Enter password">
           </div>
@@ -202,11 +206,35 @@ if(isset($_POST['submit']))
   $phno=$_POST['phno'];
   $phno=filter_var($phno,FILTER_SANITIZE_NUMBER_INT);
   $gender=$_POST['gender'];
+  $address=$_POST['address'];
+  $address=filter_var($address,FILTER_SANITIZE_SPECIAL_CHARS);
   $password=$_POST['password'];
   $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
   $cpassword=$_POST['cpassword'];
   $cpassword=filter_var($cpassword,FILTER_SANITIZE_SPECIAL_CHARS);
-  if()
+  if($password!==$cpassword)
+  {
+    echo "<script>window.alert('Passwords do not match!!')</script>";
+  }
+  else
+  {
+    $conn=new mysqli("localhost","root","","health system");
+    if($conn->connect_error)
+    {
+      echo "<script>window.alert('Unable to connect to the database')</script>";
+      die("Unable to connect");
+    }
+    else
+    {
+      $sql="SELECT * FROM users WHERE '$name'=name";
+      $result=$conn->query($sql);
+      if($result->num_rows>0)
+      {
+        echo "<script>window.alert('Username already taken!')</script>";
+      }
+    }
+    $conn->close();
+  }
 }
 
 ?>
