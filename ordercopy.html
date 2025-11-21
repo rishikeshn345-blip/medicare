@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Appointment Order Copy</title>
+
+<style>
+  body {
+    font-family: "Inter", sans-serif;
+    background: #f4f6fb;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* A4 size page */
+  .document {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 25mm;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    box-shadow: 0 0 18px rgba(0,0,0,0.15);
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* Remove background & shadows when printing */
+  @media print {
+    body {
+      background: #fff;
+      padding: 0;
+    }
+    .document {
+      border: none;
+      box-shadow: none;
+      width: auto;
+      min-height: auto;
+    }
+  }
+
+  .header {
+    text-align: center;
+    border-bottom: 3px solid #000;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 900;
+  }
+  .header p {
+    margin: 4px 0;
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 16px 0 26px;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+
+  table {
+    width: 100%;
+    font-size: 16px;
+    border-collapse: collapse;
+    margin-bottom: 22px;
+  }
+
+  td {
+    padding: 10px 0;
+  }
+
+  .label {
+    font-weight: 700;
+    width: 220px;
+  }
+
+  h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .footer {
+    margin-top: 46px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 600px;
+  }
+
+  .sign-box {
+    text-align: center;
+  }
+
+  .sign-line {
+    margin-top: 40px;
+    width: 200px;
+    border-top: 2px solid #000;
+    margin-bottom: 8px;
+  }
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+
+  <div class="header">
+    <h1>City Care Hospital</h1>
+    <p>Main Road, Bangalore — 560001</p>
+    <p>Phone: +91 99887 66554 | Email: info@citycare.com</p>
+  </div>
+
+  <h2>APPOINTMENT ORDER COPY</h2>
+
+  <table>
+    <tr>
+      <td class="label">Patient Name:</td>
+      <td>______________</td>
+    </tr>
+
+    <tr>
+      <td class="label">Doctor Name:</td>
+      <td>______________</td>
+    </tr>
+
+    <tr>
+      <td class="label">Department:</td>
+      <td>______________</td>
+    </tr>
+
+    <tr>
+      <td class="label">Appointment Date:</td>
+      <td>______________</td>
+    </tr>
+
+    <tr>
+      <td class="label">Allotted Time:</td>
+      <td>______________</td>
+    </tr>
+
+    <tr>
+      <td class="label">Disease / Problem:</td>
+      <td>______________________________________________</td>
+    </tr>
+  </table>
+<h3 text-align:left;>description:</h3>
+  <div class="footer">
+    <div class="sign-box">
+      <div class="sign-line"></div>
+      <span>Doctor Signature</span>
+    </div>
+
+    <div class="sign-box">
+      <div class="sign-line"></div>
+      <span>Hospital Seal</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
