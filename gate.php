@@ -122,17 +122,6 @@ td {
   <div class="card">
 
     <h1>Hospital Panel — Manage Doctors</h1>
-
-    <!-- Hospital Details (2 Columns) -->
-    <div class="details">
-      <div class="label">Hospital Name:</div>
-      <div class="answer">City Care Hospital</div>
-
-      
-      
-      
-    </div>
-
     <?php
       $conn= new mysqli("localhost","root","","health system");
       if($conn->connect_error)
@@ -167,8 +156,8 @@ td {
 
     <!-- Buttons -->
     <div class="btn-section">
-      <button class="btn add-btn" onclick="addDoctor()">Add Doctor</button>
-      <button class="btn remove-btn" onclick="removeDoctor()">Remove Doctor</button>
+      <a href="doctregi.php"><button class="btn add-btn">Add Doctor</button></a>
+      <a href=""><button class="btn remove-btn">Remove Doctor</button></a>
     </div>
 
     <!-- Table -->
