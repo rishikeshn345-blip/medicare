@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Home — Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+      --blue: #4a90e2;
+      --purple: #07040e;
+      --blue-light: #e5f0fd;
+      --text: #1a1a2e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--blue-light);
+      padding: 40px;
+      color: var(--text);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .btn-logout {
+      background: var(--purple);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .appointments-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      background: #ffffff;
+      border-bottom: 1px solid #dddddd;
+    }
+
+    th {
+      background: var(--blue);
+      color: white;
+      font-weight: 600;
+    }
+
+    .btn-next {
+      width: 100%;
+      background: var(--blue);
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-next:hover {
+      background: #3b7acd;
+    }
+
+    .status {
+      font-weight: 700;
+      color: green;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h2>Doctor Dashboard</h2>
+  <button class="btn-logout" onclick="logout()">Logout</button>
+</div>
+
+<div class="card">
+  <div class="appointments-title">Today's Appointments</div>
+
+  <table id="appointmentTable">
+    <tr>
+      <th>Patient Name</th>
+      <th>Time</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>John Carter</td>
+      <td>10:00 AM</td>
+      <td class="status">Waiting</td>
+    </tr>
+    <tr>
+      <td>Emily Watson</td>
+      <td>10:30 AM</td>
+      <td class="status">Waiting</td>
+    </tr>
+    <tr>
+      <td>Michael Scott</td>
+      <td>11:00 AM</td>
+      <td class="status">Waiting</td>
+    </tr>
+  </table>
+
+  <button class="btn-next" onclick="callNextPatient()">Call Next Patient</button>
+</div>
+
+<script>
+let index = 0;
+function callNextPatient() {
+  const rows = document.querySelectorAll("#appointmentTable tr");
+  if (index >= rows.length - 1) {
+    alert("All patients checked!");
+    return;
+  }
+  
+  rows[index + 1].cells[2].innerHTML = "✔ Completed";
+  rows[index + 1].cells[2].style.color = "gray";
+  
+  index++;
+  if (rows[index + 1]) {
+    rows[index + 1].cells[2].innerHTML = "➡ Calling...";
+    rows[index + 1].cells[2].style.color = "red";
+  }
+}
+
+function logout() {
+  window.location.href = "doctor-login.html";
+}
+</script>
+
+</body>
+</html>
