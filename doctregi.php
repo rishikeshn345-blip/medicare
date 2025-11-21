@@ -168,71 +168,85 @@
 
         <h1>Doctor Registration</h1>
 
-        <form onsubmit="handleDoctorRegister(event)">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
           <div class="field">
             <label>ID</label>
-            <input type="text" required placeholder="Enter unique id">
+            <input type="text" name="id" required placeholder="Enter unique id">
           </div>
           <div class="field">
             <label>Full Name</label>
-            <input type="text" required placeholder="Enter doctor's name">
+            <input type="text" name="name" required placeholder="Enter doctor's name">
           </div>
 
           <div class="field">
             <label>Age</label>
-            <input type="number" required placeholder="Enter age">
+            <input type="number" name="age" required placeholder="Enter age">
           </div>
 
           <div class="field">
             <label>Gender</label>
-            <select required>
+            <select name="gender" required>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
           </div>
 
-          <div class="field">
-            <label>Education</label>
-            <input type="text" required placeholder="MBBS, MD, etc.">
-          </div>
+          <div>
+        <label>Department</label>
+        <select name="department" required>
+        <option value="General Medicine">General Medicine</option>
+        <option value="Physician">Physician</option>
+        <option value="Cardiologist">Cardiologist</option>
+        <option value="Neurologist">Neurologist</option>
+        <option value="Pediatrician">Pediatrician</option>
+        <option value="Dentist">Dentist</option>
+        <option value="Orthopedic">Orthopedic</option>
+        <option value="Dermatologist">Dermatologist</option>
+        <option value="Gynecologist">Gynecologist</option>
+        <option value="ENT Specialist">ENT Specialist</option>
+        <option value="Surgeon">Surgeon</option>
+        
+  </select>
+</div>
 
-          <div class="field">
-            <label>Department</label>
-            <input type="text" required placeholder="Cardiology, Neurology, etc.">
-          </div>
 
           <div class="field">
             <label>Experience</label>
-            <input type="text" required placeholder="Years of experience">
+            <input type="text" name="ep" placeholder="Years of experience">
           </div>
 
           <div class="field">
             <label>Email</label>
-            <input type="email" required placeholder="doctor@example.com">
+            <input type="email" name="email" required placeholder="doctor@example.com">
           </div>
 
           <div class="field">
             <label>Phone Number</label>
-            <input type="text" required placeholder="Enter phone number">
+            <input type="text" name="phno" required placeholder="Enter phone number">
           </div>
 
           <div class="field">
-            <label>Confirm Password</label>
-            <input type="password" required placeholder="Re-enter password">
+            <label>Education</label>
+            <input type="text" name="edu" required placeholder="Enter education">
+          </div>
+
+           <div class="field">
+            <label>Working hours</label>
+            <input type="text" name="working" required placeholder="Enter working hours">
           </div>
 
           <div class="field">
             <label>Password</label>
-            <input type="password" required placeholder="Create password">
+            <input type="password" name="password" required placeholder="Create password">
           </div>
 
           <div class="field">
             <label>Confirm Password</label>
-            <input type="password" required placeholder="Re-enter password">
+            <input type="password" name="cpassword" required placeholder="Re-enter password">
           </div>
 
-          <button class="btn" type="submit">Register Doctor</button>
+          <button class="btn" name="submit" value="submit" type="submit">Register Doctor</button>
         </form>
 
         <a href="gate.php" class="link">Back to Home</a>
@@ -243,3 +257,71 @@
 
 </body>
 </html>
+<?php
+if(isset($_POST['submit']))
+{
+  $cpassword=$_POST['cpassword'];
+  $password=$_POST['password'];
+  $phno=$_POST['phno'];
+  $email=$_POST['email'];
+  $ep=$_POST['ep'];
+  $education=$_POST['edu'];
+  $department=$_POST['department'];
+  $gender=$_POST['gender'];
+  $age=$_POST['age'];
+  $name=$_POST['name'];
+  $id=$_POST['id'];
+  $working=$_POST['working'];
+
+
+  $id=filter_var($id);
+  $name=filter_var($name);
+  $age=filter_var($age);
+  $ep=filter_var($ep);
+  $email=filter_var($email);
+  $phno=filter_var($phno);
+  $password=filter_var($password);
+  $cpassword=filter_var($cpassword);
+  $working=filter_var($working,FILTER_SANITIZE_SPECIAL_CHARS);
+  $education=filter_var($education);
+
+  if($password!==$cpassword)
+  {
+    echo "<script>window.alert('Passwords do not match')</script>";
+  }
+  else
+  {
+    $conn=new mysqli("localhost","root","","health system");
+    if($conn->connect_error)
+    {
+      die("Unable to connect");
+      echo "<script>windows.alert('Connection failed')</script>";
+    }
+    else
+    {
+      $sql="SELECT * FROM doctors WHERE id='$id'";
+      $result=$conn->query($sql);
+      if($result->num_rows>0)
+      {
+        echo "<script>windows.alert('ID exists')</script>";
+      }
+      else
+      {
+        $sql="INSERT INTO doctors (id,name,gender,education,department,experience,email,phone,password,working,datetime,age)
+        VALUES('$id','$name','$gender','$education','$department','$ep','$email','$phno','$password','$working',NOW(),'$age')";
+        if($conn->query($sql))
+        {
+          echo "<script>window.alert('Registration successful')</script>";
+        }
+        else
+        {
+          echo "<scsript>window.alert('Unable to add data')</script>";
+          echo "<script>window.location='gate.php'</script>";
+        }
+      }
+    }
+  }
+  $conn->close();
+}
+
+?>
