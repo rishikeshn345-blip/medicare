@@ -151,27 +151,36 @@
 
         <h1>Create Account</h1>
 
-        <form onsubmit="handleRegister(event)">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
           <div>
             <label for="fullName">Full Name</label><br>
-            <input id="fullName" type="text" required placeholder="Your name">
+            <input id="fullName" type="text" name="name" maxlength="25" required placeholder="Your name">
           </div>
           <div>
-            <label for="email">Email</label><br>
-            <input id="email" type="email" required placeholder="you@example.com">
+            <label for="phno">Phone</label><br>
+            <input id="phno" type="tel" name="phno" max="11" placeholder="1234567890" required>
+          </div>
+          <div>
+            <label for="age">Age</label><br>
+            <input id="age" type="number" name="age" max="3" placeholder="Enter your age" required>
+          </div>
+          <div>
+            <label for="gender">Gender</label><br>
+            <input id="gender" type="radio" name="gender" required>Male
+            <input id="gender" type="radio" name="gender" required>Female
           </div>
           <div>
             <label for="password">Password</label><br>
-            <input id="password" type="password" required placeholder="Enter password">
+            <input id="password" type="password" name="password" maxlength="25" required placeholder="Enter password">
           </div>
           <div>
             <label for="confirmPassword">Confirm Password</label><br>
-            <input id="confirmPassword" type="password" required placeholder="Confirm password">
+            <input id="confirmPassword" type="password" name="cpassword" maxlength="25" required placeholder="Confirm password">
           </div>
           <button class="btn" type="submit">Register</button>
         </form>
 
-        <a href="login.html" class="link">Already have an account? Login</a>
+        <a href="userlogin.php" class="link">Already have an account? Login</a>
       </div>
     </div>
   </div>

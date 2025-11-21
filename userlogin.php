@@ -167,7 +167,7 @@
           <button class="btn" type="submit">Login</button>
         </form>
 
-        <a href="register.html" class="link">Don’t have an account? Register</a>
+        <a href="userregister.php" class="link">Don’t have an account? Register</a>
 
       </div>
     </div>
