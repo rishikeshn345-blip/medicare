@@ -170,24 +170,24 @@
 
         <h1>Login</h1>
 
-        <form onsubmit="handleLogin(event)">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
           <div class="field">
             <label>Hospital Name</label>
-            <input type="text" required placeholder="Enter hospital name">
+            <input type="text" name="hname" required placeholder="Enter hospital name">
           </div>
 
           <div class="field">
             <label>License Number</label>
-            <input type="text" required placeholder="Enter license number">
+            <input type="text" name="lno" required placeholder="Enter license number">
           </div>
 
           <div class="field">
             <label>Password</label>
-            <input type="password" required placeholder="Enter password">
+            <input type="password" name="password" required placeholder="Enter password">
           </div>
 
-          <button class="btn" type="submit">Login</button>
+          <button class="btn" name="submit" value="submit" type="submit">Login</button>
         </form>
 
         <a href="hospitalregi.php" class="link">Don't have a account register now</a>
@@ -196,12 +196,37 @@
     </div>
   </div>
 
-  <script>
-    function handleLogin(e) {
-      e.preventDefault();
-      alert("Hospital Login Successful (demo)");
-    }
-  </script>
-
 </body>
 </html>
+
+<?php
+if(isset($_POST['submit']))
+{
+  $hname=$_POST['hname'];
+  $hname=filter_var($hname,FILTER_SANITIZE_SPECIAL_CHARS);
+  $hname=strtolower($hname);
+  $lno=$_POST['lno'];
+  $lno=filter_var($lno,FILTER_SANITIZE_SPECIAL_CHARS);
+  $password=$_POST['password'];
+  $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
+  $conn=new mysqli("localhost","root","","health system");
+  if($conn->connect_error)
+  {
+    die("Unable to connect to the database!");
+    echo "<script>window.alert('Connection failed')</script>";
+  }
+  else
+  {
+    $sql="SELECT * FROM hospitals WHERE hname='$hname' AND password='$password'";
+    $result=$conn->query($sql);
+    if($result->num_rows>0)
+    {
+      setcookie("hname",$hname);
+      echo "<script>window.alert('Log in successful')</script>";
+      echo "<script>window.location='gate.php'</script>";
+    }
+  }
+  $conn->close();
+}
+
+?>

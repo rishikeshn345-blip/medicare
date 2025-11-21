@@ -128,12 +128,38 @@ td {
       <div class="label">Hospital Name:</div>
       <div class="answer">City Care Hospital</div>
 
-      <div class="label">License Number:</div>
-      <div class="answer">LIC98765</div>
-
-      <div class="label">Address:</div>
-      <div class="answer">Main Road, Bangalore</div>
+      
+      
+      
     </div>
+
+    <?php
+      $conn= new mysqli("localhost","root","","health system");
+      if($conn->connect_error)
+      {
+        $hn=$_COOKIE['hname'];
+        $sql="SELECT * FROM hospitals WHERE hname='$hn'";
+        $result=$conn->query($sql);
+        if($result->num_rows>0)
+        {
+          while ($row = $result->fetch_assoc()) 
+          {
+            echo "<div class='details'>";
+            echo "<div class='label'>Hospital Name:</div>";
+            echo "<div class='answer'>".$row['hname']."</div>";
+    
+            echo "<div class='label'>License Number:</div>";
+            echo "<div class='answer'>".$row['lno']."</div>";
+    
+            echo "<div class='label'>Address:</div>";
+            echo "<div class='answer'>".$row['haddress']."</div>";
+            echo "</div>";
+          }
+
+        }
+      }
+      $conn->close();
+    ?>
 
     <!-- Buttons -->
     <div class="btn-section">
