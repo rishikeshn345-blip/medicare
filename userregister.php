@@ -232,6 +232,20 @@ if(isset($_POST['submit']))
       {
         echo "<script>window.alert('Username already taken!')</script>";
       }
+      else
+      {        
+        $sql = "INSERT INTO users (name, phno, password, address, gender, age, datetime)
+        VALUES ('$name', '$phno', '$password', '$address', '$gender', '$age', NOW())";
+        if($conn->query($sql))
+        {
+          echo "<script>window.alert('Registration Successful')</script>";
+          echo "<script> window.location='userlogin.php'</script>";
+        }
+        else
+        {
+          echo "<script>window.alert('Something went wrong')</script>";
+        }
+      }
     }
     $conn->close();
   }
