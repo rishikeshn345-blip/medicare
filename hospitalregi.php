@@ -170,7 +170,7 @@
 
       <h1>Hospital Registration</h1>
 
-      <form mathod="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
         
         <div class="field">
           <label>Hospital Name</label>
@@ -219,6 +219,7 @@ if(isset($_POST['submit']))
 {
   $hname=$_POST['hname'];
   $hname=filter_var($hname,FILTER_SANITIZE_SPECIAL_CHARS);
+  $hname=strtolower($hname);
   $haddress=$_POST['haddress'];
   $haddress=filter_var($haddress,FILTER_SANITIZE_SPECIAL_CHARS);
   $lno=$_POST['lno'];
@@ -241,7 +242,7 @@ if(isset($_POST['submit']))
     }
     else
     {
-      $sql="SELECT * FROM hospitals WHERE name='hname'";
+      $sql="SELECT * FROM hospitals WHERE hname='hname'";
       $result=$conn->query($sql);
       if($result->num_rows>0)
       {
@@ -249,7 +250,7 @@ if(isset($_POST['submit']))
       }
       else
       {
-        $sql = "INSERT INTO users (hname,haddress,lno, password, datetime)
+        $sql = "INSERT INTO hospitals (hname,haddress,lno, password, datetime)
           VALUES ('$hname', '$haddress', '$lno', '$password', NOW())";
           if($conn->query($sql))
           {
