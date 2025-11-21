@@ -88,16 +88,48 @@ td {
 
   <h1>Book Doctor Appointment</h1>
 
-  <table>
-    <tr>
-      <th>Doctor Name</th>
-      <th>Department</th>
-      <th>Action</th>
-    </tr>
+  <?php
+  echo "<table>";
+  echo "<tr>";
+  echo "<th>Doctor Name</th>";
+  echo "<th>Department</th>";
+  echo "<th>Education</th>";
+  echo "</tr>";
+  $conn=new mysqli("localhost","root","","health system");
+  if($conn->connect_error)
+  {
+    die("Connection failed!");
+  }
+  else
+  {
+    $lno=$_COOKIE['lno'];
+    $sql="SELECT * FROM doctors WHERE lno='$lno'";
+    $result=$conn->query($sql);
+    if($result->fetch_assoc())
+    {
+      while($row=$result->fetch_assoc())
+      {
+        echo "<tr>";
+        echo "<td>".$row['name']."</td>";
+        echo "<td>".$row['department']."</td>";
+        echo "<td>".$row['education']."</td>";
+        echo "</tr>";
+      }
+    }
+    echo "</table>";
+  }
+  $conn->close();
+  ?>
+  
+    
+      
+     
+      
+    
 
-    <tr>
-      <td>Dr. John Carter</td>
-      <td>Physician</td>
+    
+      
+      
       <td><button class="book-btn" onclick="bookDoctor('Dr. John Carter')">Book</button></td>
     </tr>
 

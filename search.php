@@ -113,6 +113,43 @@
     background: #140c22;
   }
 
+  table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background: #4a90e2;
+  color: #fff;
+  font-weight: 600;
+  text-align: left;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:nth-child(even) {
+  background: #f8faff;
+}
+
+tr:hover {
+  background: #eaf1ff;
+  cursor: pointer;
+}
+
+
 </style>
 </head>
 
@@ -121,54 +158,57 @@
 <h2>Welcome</h2>
 
 <div class="search-box">
-  <input type="text" id="searchInput" placeholder="Search hospitals...">
-  <button class="btn" onclick="searchHospital()">Submit</button>
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+  <input type="text" name="hospital" id="searchInput" placeholder="Search hospitals...">
+  <button class="btn" type="submit" name="submit">Submit</button>
+  </form>
 </div>
 
 <div class="list" id="hospitalList">
 
-  <div class="item">
-    <div class="h-details">
-      <span class="h-name">City Care Hospital</span>
-      <span class="h-address">Main Road, Bangalore</span>
-    </div>
-    <button class="visit-btn" onclick="visitHospital('City Care Hospital')">Visit</button>
-  </div>
-
-  <div class="item">
-    <div class="h-details">
-      <span class="h-name">Health Plus Clinic</span>
-      <span class="h-address">MG Street, Chennai</span>
-    </div>
-    <button class="visit-btn" onclick="visitHospital('Health Plus Clinic')">Visit</button>
-  </div>
-
-  <div class="item">
-    <div class="h-details">
-      <span class="h-name">Global Medic Center</span>
-      <span class="h-address">Urban Circle, Hyderabad</span>
-    </div>
-    <button class="visit-btn" onclick="visitHospital('Global Medic Center')">Visit</button>
-  </div>
-
 </div>
-
-<script>
-function searchHospital() {
-  const search = document.getElementById("searchInput").value.toLowerCase();
-  const items = document.querySelectorAll(".item");
-
-  items.forEach(item => {
-    const name = item.querySelector(".h-name").innerText.toLowerCase();
-    item.style.display = name.includes(search) ? "flex" : "none";
-  });
-}
-
-function visitHospital(name) {
-  alert("Visiting " + name + " (Demo)");
-  window.location.href = "book-appointment.html"; // Link to appointment booking
-}
-</script>
 
 </body>
 </html>
+<?php
+if(isset($_POST['submit']))
+{
+  $hospital=$_POST['hospital'];
+  $conn=new mysqli("localhost","root","","health system");
+  if($conn->connect_error)
+  {
+    die("Unable to connect!");
+    echo "<script>window.alert('Sorry unable to connect')</script>";
+  }
+  else
+  {
+    $sql="SELECT * FROM hospitals WHERE hname='$hospital' OR haddress='$hospital' OR lno='$hospital'";
+    $result=$conn->query($sql);
+    if($result->num_rows>0)
+    {
+      echo "<table>";
+      echo "<th>Name</th>";
+      echo "<th>Address</th>";
+      echo "<th>L_no</th>";
+      echo "<th>Take appointment</th>";
+      while($row=$result->fetch_assoc())
+      {
+        echo "<tr>";
+        echo "<td>".$row['hname']."</td>";
+        echo "<td>".$row['haddress']."</td>";
+        echo "<td>".$row['lno']."</td>";
+        setcookie("lno",$row['lno']);
+        echo "<td><a href='bookappoint.php'>Brouse</a></td>";
+        echo "</tr>";
+      }
+      echo "</table>";
+    }
+    else
+    {
+      echo "<script>window.alert('No Hospital found')</script>";
+    }
+  }
+  $conn->close();
+}
+
+?>
