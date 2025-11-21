@@ -112,7 +112,7 @@ input:focus {
     <button type="submit" name="submit" class="btn">Delete Doctor</button>
   </form>
 
-  <a href="hospital-manage-doctors.html" class="link">Back to Hospital Panel</a>
+  <a href="gate.php"link">Back to Hospital Panel</a>
 </div>
 </body>
 </html>
