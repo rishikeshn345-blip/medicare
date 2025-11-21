@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospitals — Appointment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --blue: #4a90e2;
+    --purple: #07040e;
+    --blue-light: #e5f0fd;
+    --text: #1a1a2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Inter", sans-serif;
+    background: var(--blue-light);
+    padding: 35px;
+    color: var(--text);
+  }
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+
+  input {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    width: 260px;
+    font-size: 15px;
+    background: rgba(0,0,0,0.06);
+    outline: none;
+  }
+
+  input:focus {
+    box-shadow: 0 0 0 3px rgba(74,144,226,0.3);
+  }
+
+  .btn {
+    background: var(--blue);
+    padding: 12px 18px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover { background: #3b7acd; }
+
+  .list {
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .item {
+    background: white;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .h-details {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .h-name {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .h-address {
+    font-size: 14px;
+    color: gray;
+  }
+
+  .visit-btn {
+    background: var(--purple);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .visit-btn:hover {
+    background: #140c22;
+  }
+
+</style>
+</head>
+
+<body>
+
+<h2>Welcome</h2>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search hospitals...">
+  <button class="btn" onclick="searchHospital()">Submit</button>
+</div>
+
+<div class="list" id="hospitalList">
+
+  <div class="item">
+    <div class="h-details">
+      <span class="h-name">City Care Hospital</span>
+      <span class="h-address">Main Road, Bangalore</span>
+    </div>
+    <button class="visit-btn" onclick="visitHospital('City Care Hospital')">Visit</button>
+  </div>
+
+  <div class="item">
+    <div class="h-details">
+      <span class="h-name">Health Plus Clinic</span>
+      <span class="h-address">MG Street, Chennai</span>
+    </div>
+    <button class="visit-btn" onclick="visitHospital('Health Plus Clinic')">Visit</button>
+  </div>
+
+  <div class="item">
+    <div class="h-details">
+      <span class="h-name">Global Medic Center</span>
+      <span class="h-address">Urban Circle, Hyderabad</span>
+    </div>
+    <button class="visit-btn" onclick="visitHospital('Global Medic Center')">Visit</button>
+  </div>
+
+</div>
+
+<script>
+function searchHospital() {
+  const search = document.getElementById("searchInput").value.toLowerCase();
+  const items = document.querySelectorAll(".item");
+
+  items.forEach(item => {
+    const name = item.querySelector(".h-name").innerText.toLowerCase();
+    item.style.display = name.includes(search) ? "flex" : "none";
+  });
+}
+
+function visitHospital(name) {
+  alert("Visiting " + name + " (Demo)");
+  window.location.href = "book-appointment.html"; // Link to appointment booking
+}
+</script>
+
+</body>
+</html>
