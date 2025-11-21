@@ -230,16 +230,23 @@
             <label>Education</label>
             <input type="text" name="edu" required placeholder="Enter education">
           </div>
-
-           <div class="field">
+          
+          <div class="field">
             <label>Working hours</label>
             <input type="text" name="working" required placeholder="Enter working hours">
+          </div>
+
+          <div class="field">
+            <label>Enter HID:</label>
+            <input type="text" name="hid" required placeholder="Enter HID">
           </div>
 
           <div class="field">
             <label>Password</label>
             <input type="password" name="password" required placeholder="Create password">
           </div>
+
+
 
           <div class="field">
             <label>Confirm Password</label>
@@ -272,6 +279,7 @@ if(isset($_POST['submit']))
   $name=$_POST['name'];
   $id=$_POST['id'];
   $working=$_POST['working'];
+  $hid=$_POST['hid'];
 
 
   $id=filter_var($id);
@@ -307,8 +315,8 @@ if(isset($_POST['submit']))
       }
       else
       {
-        $sql="INSERT INTO doctors (id,name,gender,education,department,experience,email,phone,password,working,datetime,age)
-        VALUES('$id','$name','$gender','$education','$department','$ep','$email','$phno','$password','$working',NOW(),'$age')";
+        $sql="INSERT INTO doctors (id,name,gender,education,department,experience,email,phone,password,working,datetime,age,hid)
+        VALUES('$id','$name','$gender','$education','$department','$ep','$email','$phno','$password','$working',NOW(),'$age','$hid')";
         if($conn->query($sql))
         {
           echo "<script>window.alert('Registration successful')</script>";
