@@ -170,7 +170,7 @@
 
       <h1>Hospital Registration</h1>
 
-      <form onsubmit="hospitalRegister(event)">
+      <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
         
         <div class="field">
           <label>Hospital Name</label>
@@ -197,7 +197,7 @@
           <input type="password" name="cpassword" required placeholder="Re-enter password">
         </div>
 
-        <button class="btn" type="submit">Register Hospital</button>
+        <button class="btn" name="submit" value="submit" type="submit">Register Hospital</button>
       </form>
 
       <a href="#" class="link">Back to Home</a>
@@ -215,7 +215,58 @@
 </body>
 </html>
 <?php
-
+if(isset($_POST['submit']))
+{
+  $hname=$_POST['hname'];
+  $hname=filter_var($hname,FILTER_SANITIZE_SPECIAL_CHARS);
+  $hname=strtolower($hname);
+  $haddress=$_POST['haddress'];
+  $haddress=filter_var($haddress,FILTER_SANITIZE_SPECIAL_CHARS);
+  $lno=$_POST['lno'];
+  $lno=filter_var($lno,FILTER_SANITIZE_SPECIAL_CHARS);
+  $password=$_POST['password'];
+  $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
+  $cpassword=$_POST['cpassword'];
+  $cpassword=filter_var($cpassword,FILTER_SANITIZE_SPECIAL_CHARS);
+  $conn=new mysqli("localhost","root","","health system");
+  if($password!==$cpassword)
+  {
+    echo "<script>window.alert('Passwords do not match!!')</script>";
+  }
+  else
+  {
+      if($conn->connect_errno)
+    {
+      die("Unable to connect");
+      echo "<script>window.alert('Unable to connect to the database')</script>";
+    }
+    else
+    {
+      $sql="SELECT * FROM hospitals WHERE hname='hname'";
+      $result=$conn->query($sql);
+      if($result->num_rows>0)
+      {
+        echo "<script>window.alert('Hospital name already taken!!')</script>";
+      }
+      else
+      {
+        $sql = "INSERT INTO hospitals (hname,haddress,lno, password, datetime)
+          VALUES ('$hname', '$haddress', '$lno', '$password', NOW())";
+          if($conn->query($sql))
+          {
+            echo "<script>window.alert('Hospital added successfully!!')</script>";
+            echo "<script> window.location='hosplogin.php'</script>";
+          }
+          else
+          {
+            echo "<script>window.alert('Unable to add something went wrong')</script>";
+          }
+      }
+    }
+  }
+  
+  $conn->close();
+}
 
 
 ?>
