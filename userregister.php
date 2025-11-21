@@ -170,7 +170,7 @@
             <input id="gender" type="radio" name="gender" value="femail" required>Female
           </div>
           <div>
-            <label for="address">Gender</label><br>
+            <label for="address">Address</label><br>
             <input id="address" type="text" name="address" maxlength="100" required>
           </div>
           <div>
@@ -204,7 +204,7 @@ if(isset($_POST['submit']))
   $name=$_POST['name'];
   $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
   $phno=$_POST['phno'];
-  $phno=filter_var($phno,FILTER_SANITIZE_NUMBER_INT);
+  $phno=filter_var($phno,FILTER_SANITIZE_SPECIAL_CHARS);
   $gender=$_POST['gender'];
   $address=$_POST['address'];
   $address=filter_var($address,FILTER_SANITIZE_SPECIAL_CHARS);
