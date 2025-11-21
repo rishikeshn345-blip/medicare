@@ -159,11 +159,13 @@ td {
       <a href="doctregi.php"><button class="btn add-btn">Add Doctor</button></a>
       <a href="delete.php"><button class="btn remove-btn">Remove Doctor</button></a>
       <a href="update.php"><button class="btn remove-btn">Update Doctor</button></a>
+       <a href="hosplogin.php"><button class="btn remove-btn">Home</button></a>
     </div>
 </body>
 </html>
-<?php 
-$sql="SELECT * FROM doctors";
+<?php
+$d=$_COOKIE["lno"]; 
+$sql="SELECT * FROM doctors WHERE hid='$d'";
 $conn=new mysqli("localhost","root","","health system");
 if($conn->connect_error)
 {

@@ -102,7 +102,7 @@
   <div class="btn-container">
     <button class="btn user-btn" onclick="navigate('home.php')">User</button>
     <button class="btn hospital-btn" onclick="navigate('hosplogin.php')">Hospital</button>
-    <button class="btn emergency-btn" onclick="navigate('emergency.html')">Emergency Support</button>
+    <button class="btn emergency-btn" onclick="navigate('emergency.php')">Emergency Support</button>
     <button class="btn ai-btn" onclick="navigate('')">AI Model</button>
   </div>
 

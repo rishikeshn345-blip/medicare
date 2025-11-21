@@ -21,6 +21,7 @@ if(isset($_POST['submit']))
     if($result->num_rows>0)
     {
       setcookie("hname",$hname);
+      setcookie("lno",$lno);
       echo "<script>window.alert('Log in successful')</script>";
       echo "<script>window.location='gate.php'</script>";
     }

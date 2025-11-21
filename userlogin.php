@@ -201,7 +201,7 @@
       $result=$conn->query($sql);
       if($result->num_rows>0)
       {
-          echo "<script> window.location='home.php'</script>";
+          echo "<script> window.location='booking.php'</script>";
       }
       else
       {

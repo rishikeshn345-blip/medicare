@@ -245,8 +245,8 @@ if(isset($_POST['submit']))
         }
         else
         {
-          $sql = "INSERT INTO users (name, phno, password, address, gender, age, datetime)
-          VALUES ('$name', '$phno', '$password', '$address', '$gender', '$age', NOW())";
+          $sql = "INSERT INTO users (name, phno, password, address, gender, age, datetime,hid)
+          VALUES ('$name', '$phno', '$password', '$address', '$gender', '$age', NOW(),)";
           if($conn->query($sql))
           {
             echo "<script>window.alert('Registration Successful')</script>";
