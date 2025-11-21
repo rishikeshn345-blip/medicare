@@ -171,6 +171,10 @@
         <form onsubmit="handleDoctorRegister(event)">
 
           <div class="field">
+            <label>ID</label>
+            <input type="text" required placeholder="Enter unique id">
+          </div>
+          <div class="field">
             <label>Full Name</label>
             <input type="text" required placeholder="Enter doctor's name">
           </div>
@@ -183,10 +187,8 @@
           <div class="field">
             <label>Gender</label>
             <select required>
-              <option value="">Choose Gender</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
           </div>
 
@@ -233,18 +235,11 @@
           <button class="btn" type="submit">Register Doctor</button>
         </form>
 
-        <a href="home.html" class="link">Back to Home</a>
+        <a href="gate.php" class="link">Back to Home</a>
 
       </div>
     </div>
   </div>
-
-  <script>
-    function handleDoctorRegister(e) {
-      e.preventDefault();
-      alert("Doctor Registered Successfully (demo)");
-    }
-  </script>
 
 </body>
 </html>
