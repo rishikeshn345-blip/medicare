@@ -174,33 +174,33 @@
         
         <div class="field">
           <label>Hospital Name</label>
-          <input type="text" required placeholder="Enter hospital name">
+          <input type="text" name="hname" required placeholder="Enter hospital name">
         </div>
 
         <div class="field">
           <label>Address</label>
-          <textarea required placeholder="Enter hospital address"></textarea>
+          <textarea required name="haddress" placeholder="Enter hospital address"></textarea>
         </div>
 
         <div class="field">
           <label>License Number</label>
-          <input type="text" required placeholder="Enter license number">
+          <input type="text" name="lno" required placeholder="Enter license number">
         </div>
 
         <div class="field">
           <label>Password</label>
-          <input type="password" required placeholder="Create password">
+          <input type="password" name="password" required placeholder="Create password">
         </div>
 
         <div class="field">
           <label>Confirm Password</label>
-          <input type="password" required placeholder="Re-enter password">
+          <input type="password" name="cpassword" required placeholder="Re-enter password">
         </div>
 
         <button class="btn" type="submit">Register Hospital</button>
       </form>
 
-      <a href="home.html" class="link">Back to Home</a>
+      <a href="#" class="link">Back to Home</a>
     </div>
   </div>
 </div>
@@ -214,3 +214,8 @@
 
 </body>
 </html>
+<?php
+
+
+
+?>

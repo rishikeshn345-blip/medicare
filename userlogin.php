@@ -153,18 +153,18 @@
 
         <h1>Login</h1>
 
-        <form onsubmit="handleLogin(event)">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
           <div>
-            <label for="email">Email</label><br>
-            <input id="email" type="email" required placeholder="you@example.com">
+            <label for="name">Username</label><br>
+            <input id="name" type="text" name="name" required placeholder="Enter the usename">
           </div>
 
           <div>
             <label for="password">Password</label><br>
-            <input id="password" type="password" required placeholder="Enter password">
+            <input id="password" name="password" type="password" required placeholder="Enter password">
           </div>
 
-          <button class="btn" type="submit">Login</button>
+          <button class="btn" name="submit" value="submit" type="submit">Login</button>
         </form>
 
         <a href="userregister.php" class="link">Don’t have an account? Register</a>
@@ -183,7 +183,32 @@
 </body>
 </html>
 <?php
-
-
+  if(isset($_POST['submit']))
+  {
+    $name=$_POST['name'];
+    $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
+    $password=$_POST['password'];
+    $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
+    $conn=new mysqli("localhost","root","","health system");
+    if($conn->connect_error)
+    {
+      echo "<script>window.alert('Unable to connect to the database')</script>";
+      die("Unable to connect");
+    }
+    else
+    {
+      $sql="SELECT * FROM users WHERE name='$name' AND password='$password'";
+      $result=$conn->query($sql);
+      if($result->num_rows>0)
+      {
+          echo "<script> window.location='home.php'</script>";
+      }
+      else
+      {
+        echo "<script>window.alert('No user found with the given username and password')</script>";
+      }
+    }
+    $conn->close();
+  }
 
 ?>
