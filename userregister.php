@@ -218,7 +218,22 @@ if(isset($_POST['submit']))
   }
   else
   {
-    
+    $conn=new mysqli("localhost","root","","health system");
+    if($conn->connect_error)
+    {
+      echo "<script>window.alert('Unable to connect to the database')</script>";
+      die("Unable to connect");
+    }
+    else
+    {
+      $sql="SELECT * FROM users WHERE '$name'=name";
+      $result=$conn->query($sql);
+      if($result->num_rows>0)
+      {
+        echo "<script>window.alert('Username already taken!')</script>";
+      }
+    }
+    $conn->close();
   }
 }
 
