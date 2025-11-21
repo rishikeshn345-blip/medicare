@@ -1,3 +1,36 @@
+<?php
+if(isset($_POST['submit']))
+{
+  $hname=$_POST['hname'];
+  $hname=filter_var($hname,FILTER_SANITIZE_SPECIAL_CHARS);
+  $hname=strtolower($hname);
+  $lno=$_POST['lno'];
+  $lno=filter_var($lno,FILTER_SANITIZE_SPECIAL_CHARS);
+  $password=$_POST['password'];
+  $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
+  $conn=new mysqli("localhost","root","","health system");
+  if($conn->connect_error)
+  {
+    die("Unable to connect to the database!");
+    echo "<script>window.alert('Connection failed')</script>";
+  }
+  else
+  {
+    $sql="SELECT * FROM hospitals WHERE hname='$hname' AND password='$password'";
+    $result=$conn->query($sql);
+    if($result->num_rows>0)
+    {
+      setcookie("hname",$hname);
+      echo "<script>window.alert('Log in successful')</script>";
+      echo "<script>window.location='gate.php'</script>";
+    }
+  }
+  $conn->close();
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -195,38 +228,5 @@
 
     </div>
   </div>
-
 </body>
 </html>
-
-<?php
-if(isset($_POST['submit']))
-{
-  $hname=$_POST['hname'];
-  $hname=filter_var($hname,FILTER_SANITIZE_SPECIAL_CHARS);
-  $hname=strtolower($hname);
-  $lno=$_POST['lno'];
-  $lno=filter_var($lno,FILTER_SANITIZE_SPECIAL_CHARS);
-  $password=$_POST['password'];
-  $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
-  $conn=new mysqli("localhost","root","","health system");
-  if($conn->connect_error)
-  {
-    die("Unable to connect to the database!");
-    echo "<script>window.alert('Connection failed')</script>";
-  }
-  else
-  {
-    $sql="SELECT * FROM hospitals WHERE hname='$hname' AND password='$password'";
-    $result=$conn->query($sql);
-    if($result->num_rows>0)
-    {
-      setcookie("hname",$hname);
-      echo "<script>window.alert('Log in successful')</script>";
-      echo "<script>window.location='gate.php'</script>";
-    }
-  }
-  $conn->close();
-}
-
-?>

@@ -137,12 +137,16 @@ td {
       $conn= new mysqli("localhost","root","","health system");
       if($conn->connect_error)
       {
-        $hn=$_COOKIE['hname'];
+       die("Connection failed!!!");
+      }
+      else
+      {
+        $hn=$_COOKIE["hname"];
         $sql="SELECT * FROM hospitals WHERE hname='$hn'";
         $result=$conn->query($sql);
         if($result->num_rows>0)
         {
-          while ($row = $result->fetch_assoc()) 
+          while ($row=$result->fetch_assoc()) 
           {
             echo "<div class='details'>";
             echo "<div class='label'>Hospital Name:</div>";
@@ -183,21 +187,6 @@ td {
 
   </div>
 </div>
-
-<script>
-function addDoctor() {
-  alert("Add Doctor Module Coming Soon! (Demo)");
-}
-
-function removeDoctor() {
-  const table = document.getElementById("doctorTable");
-  if(table.rows.length > 1) {
-    table.deleteRow(-1);
-  } else {
-    alert("No more doctor records to remove!");
-  }
-}
-</script>
 
 </body>
 </html>
