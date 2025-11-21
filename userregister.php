@@ -158,16 +158,16 @@
           </div>
           <div>
             <label for="phno">Phone</label><br>
-            <input id="phno" type="tel" name="phno" max="11" placeholder="1234567890" required>
+            <input id="phno" type="tel" name="phno" max="999999999" placeholder="1234567890" required>
           </div>
           <div>
             <label for="age">Age</label><br>
-            <input id="age" type="number" name="age" max="3" placeholder="Enter your age" required>
+            <input id="age" type="number" name="age" max="100" placeholder="Enter your age" required>
           </div>
           <div>
             <label for="gender">Gender</label><br>
-            <input id="gender" type="radio" name="gender" required>Male
-            <input id="gender" type="radio" name="gender" required>Female
+            <input id="gender" type="radio" name="gender" value="male" required>Male
+            <input id="gender" type="radio" name="gender" value="femail" required>Female
           </div>
           <div>
             <label for="password">Password</label><br>
@@ -177,7 +177,7 @@
             <label for="confirmPassword">Confirm Password</label><br>
             <input id="confirmPassword" type="password" name="cpassword" maxlength="25" required placeholder="Confirm password">
           </div>
-          <button class="btn" type="submit">Register</button>
+          <button class="btn" name="submit" type="submit" value="submit">Register</button>
         </form>
 
         <a href="userlogin.php" class="link">Already have an account? Login</a>
@@ -193,3 +193,20 @@
   </script>
 </body>
 </html>
+
+<?php
+if(isset($_POST['submit']))
+{
+  $name=$_POST['name'];
+  $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
+  $phno=$_POST['phno'];
+  $phno=filter_var($phno,FILTER_SANITIZE_NUMBER_INT);
+  $gender=$_POST['gender'];
+  $password=$_POST['password'];
+  $password=filter_var($password,FILTER_SANITIZE_SPECIAL_CHARS);
+  $cpassword=$_POST['cpassword'];
+  $cpassword=filter_var($cpassword,FILTER_SANITIZE_SPECIAL_CHARS);
+  if()
+}
+
+?>
