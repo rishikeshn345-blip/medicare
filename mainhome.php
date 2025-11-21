@@ -100,10 +100,10 @@
   <h1>Healthcare Management System</h1>
 
   <div class="btn-container">
-    <button class="btn user-btn" onclick="navigate('appointment-hospitals.html')">Start as User</button>
-    <button class="btn hospital-btn" onclick="navigate('hospital-register.html')">Start as New Hospital</button>
-    <button class="btn emergency-btn" onclick="emergencySupport()">Emergency Support</button>
-    <button class="btn ai-btn" onclick="navigate('ai-model.html')">AI Model</button>
+    <button class="btn user-btn" onclick="navigate('home.php')">User</button>
+    <button class="btn hospital-btn" onclick="navigate('hosplogin.php')">Hospital</button>
+    <button class="btn emergency-btn" onclick="navigate('emergency.html')">Emergency Support</button>
+    <button class="btn ai-btn" onclick="navigate('')">AI Model</button>
   </div>
 
   <div class="about-section">

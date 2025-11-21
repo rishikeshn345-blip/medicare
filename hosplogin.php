@@ -190,7 +190,7 @@
           <button class="btn" type="submit">Login</button>
         </form>
 
-        <a href="home.html" class="link">Back to Home</a>
+        <a href="hospitalregi.php" class="link">Don't have a account register now</a>
       </div>
 
     </div>

@@ -119,9 +119,9 @@
   <header>
     <h1>Med Priority</h1>
     <nav>
-      <a href="home.html">Home</a>
-      <a href="login.html">Login</a>
-      <a href="register.html">Register</a>
+      <a href="mainhome.php">Home</a>
+      <a href="userlogin.php">Login</a>
+      <a href="userregister.php">Register</a>
     </nav>
   </header>
 
