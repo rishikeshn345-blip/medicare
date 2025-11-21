@@ -118,6 +118,8 @@
   <!-- HEADER -->
   <header>
     <h1>Med Priority</h1>
+    <video style="display:none;" autoplay loop muted>
+      <source src="medpriority.mp4" type="video/mp4"> 
     <nav>
       <a href="mainhome.php">Home</a>
       <a href="userlogin.php">Login</a>
