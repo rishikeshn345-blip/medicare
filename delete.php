@@ -125,7 +125,7 @@ if(isset($_POST['submit']))
   $name=filter_var($name,FILTER_SANITIZE_SPECIAL_CHARS);
   $id=filter_var($id,FILTER_SANITIZE_SPECIAL_CHARS);
 
-  $conn=new mysqli("localhost","root","","health singer");
+  $conn=new mysqli("localhost","root","","health system");
   if($conn->connect_error)
   {
     die("Connection failed");
