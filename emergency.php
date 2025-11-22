@@ -153,6 +153,7 @@
       </div>
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+       
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>
@@ -183,6 +184,8 @@
       </div>
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+         <a class="btn btn-call" href="https://youtube.com/shorts/9HeRaGW3fyo?si=pnDoCPR_MK6r_Xzj">first-aid</a>
+
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>
@@ -214,6 +217,8 @@
 
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+         <a class="btn btn-call" href="https://youtube.com/shorts/Qko1Ajrp1Sw?si=6SLswkuJ98yF0xJQ">first-aid</a>
+
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>
@@ -247,6 +252,8 @@
 
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+         <a class="btn btn-call" href="https://youtube.com/shorts/3mKo-HBDsQI?si=-Df7o8ox5X-PSK0S">first-aid</a>
+
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
       </section>
@@ -281,6 +288,8 @@
 
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+         <a class="btn btn-call" href="https://youtube.com/shorts/OpsP9BQBm6k?si=8LioUUJ5wTpD6msJ">first-aid</a>
+
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>
@@ -309,10 +318,15 @@
           <div>→ Cover with a towel/cloth to prevent shock
 → Let them rest on their side if they are breathing (recovery position)</div>
         </div>
+        <div>
+          
+        </div>
       </div>
 
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+          <a class="btn btn-call" href="https://youtu.be/_7mQaLa3tDs?si=eX8oXn0rK9b8pO3m">first-aid</a>
+
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>
@@ -347,6 +361,8 @@
 
       <div class="actions">
         <a class="btn btn-call" href="tel:112">📞 Call 112</a>
+         <a class="btn btn-call" href="https://youtube.com/shorts/YzYz_LlqGP4?si=dHxLoTjJWUFfwr1q">first-aid</a>
+
         <a class="btn btn-map" href="https://www.google.com/maps/search/hospital+near+me" target="_blank" rel="noopener">📍 Find nearby hospital</a>
       </div>
     </section>

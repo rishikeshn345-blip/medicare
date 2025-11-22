@@ -103,13 +103,6 @@ $conn->close();
         <td><?php echo $dateDisplay; ?></td>
         <td><?php echo $timeDisplay; ?></td>
         <td><?php echo $typeLabel; ?></td>
-        <td>
-          <!-- Example action: mark as 'seen' or view details -->
-          <form method="post" action="mark_seen.php" style="display:inline">
-            <input type="hidden" name="appointment_id" value="<?php echo htmlspecialchars($appt['id']); ?>">
-            <button type="submit" class="action-btn">Mark Seen</button>
-          </form>
-        </td>
       </tr>
       <?php endforeach; ?>
 

@@ -116,7 +116,6 @@
     </p>
 
     <ul class="points">
-      <li><strong>AI Disease Prediction:</strong> Users select symptoms and our AI suggests possible diseases.</li>
       <li><strong>Smart Appointment Booking:</strong> Book doctor appointments online — no long waiting lines.</li>
       <li><strong>Emergency First Help:</strong> Simple step-by-step instructions for heart attack, burns, choking, etc.</li>
       <li><strong>Nearest Hospital Locator:</strong> Uses GPS to show the nearest hospital with directions.</li>
