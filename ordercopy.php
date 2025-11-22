@@ -115,7 +115,6 @@
 <div class="document">
 
   <div class="header">
-    <h1>City Care Hospital</h1>
     <p>Main Road, Bangalore — 560001</p>
     <p>Phone: +91 99887 66554 | Email: info@citycare.com</p>
   </div>
@@ -141,6 +140,7 @@
   // optional posted date in YYYY-MM-DD
   $appt_date = isset($_POST['date']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['date']) ? $_POST['date'] : date('Y-m-d');
 
+
   // defaults for scheduling
   $slot_length = 20; // minutes
   $slots_per_block = 4;
@@ -155,7 +155,6 @@
       die('<div style="color:red">Connection failed: ' . htmlspecialchars($conn->connect_error) . '</div>');
   }
   $conn->set_charset('utf8mb4');
-
   // helper: generate list of candidate slot start times (H:i:s strings) for the date
   function generate_candidate_slots($date, $work_start, $work_end, $slot_length, $slots_per_block, $buffer_minutes) {
       $candidates = [];
