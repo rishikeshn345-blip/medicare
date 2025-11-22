@@ -107,36 +107,58 @@
 
   <h2>Book Appointment</h2>
 
-  <form onsubmit="submitAppointment(event)">
+  <form method="post" action="ordercopy.php">
     
     <div class="field">
       <label>Your Name</label>
-      <input type="text" placeholder="Enter your name" required>
+      <input type="text" name="name" placeholder="Enter your name" required>
     </div>
 
     <div class="field">
       <label>Select Doctor</label>
-      <select required>
-        <option value="">Choose Doctor</option>
-        <option>Dr. James (Cardiology)</option>
-        <option>Dr. Smith (Neurology)</option>
-        <option>Dr. Priya (General Physician)</option>
+      <?php 
+      $conn=new mysqli("localhost","root","","health system");
+      if($conn->connect_error)
+      {
+        die("Connect failerd");
+      }
+      else
+      {
+        $hos=$_COOKIE['hname'];
+        $sql="SELECT lno FROM hospitals WHERE hname='$hos'";
+        $result=$conn->query($sql);
+        $row=$result->fetch_assoc();
+        $l=$row['lno'];
+        $sql="SELECT * FROM doctors WHERE hid='$l'";
+        $result=$conn->query($sql);
+        echo "<select name='dname' required>";
+        while($row=$result->fetch_assoc())
+        {
+          echo " <option value=".$row['name'].">".$row['name']."</option>";
+        }
+        echo " </select>";
+      }
+      ?>
+      
+        
+       
+       
+     
+    </div>
+
+    <div class="field">
+      <label>Type:</label>
+      <select name="type" required>
+        <option value="10">First time visit</option>
+        <option value="20">Report Checking</option>
+        <option value="25">Injury Dressing</option>
       </select>
     </div>
 
-    <div class="field">
-      <label>Date</label>
-      <input type="date" required>
-    </div>
-
-    <div class="field">
-      <label>Time</label>
-      <input type="time" required>
-    </div>
 
     <div class="field">
       <label>Describe Your Problem</label>
-      <textarea placeholder="Example: Fever, headache, body pain..." required></textarea>
+      <textarea placeholder="Example: Fever, headache, body pain..." name="dis" required></textarea>
     </div>
 
     <button class="btn" type="submit">Book Appointment</button>
@@ -147,11 +169,6 @@
 
 </div>
 
-<script>
-function submitAppointment(e){
-  e.preventDefault();
-  alert("Appointment Booked Successfully (Demo)");
-}
 </script>
 
 </body>

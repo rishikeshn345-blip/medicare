@@ -191,14 +191,14 @@ if(isset($_POST['submit']))
       echo "<th>Address</th>";
       echo "<th>L_no</th>";
       echo "<th>Take appointment</th>";
+      setcookie("hname",$hospital);
       while($row=$result->fetch_assoc())
       {
         echo "<tr>";
         echo "<td>".$row['hname']."</td>";
         echo "<td>".$row['haddress']."</td>";
         echo "<td>".$row['lno']."</td>";
-        setcookie("lno",$row['lno']);
-        echo "<td><a href='bookappoint.php'>Brouse</a></td>";
+        echo "<td><a href='booking.php'>Brouse</a></td>";
         echo "</tr>";
       }
       echo "</table>";
