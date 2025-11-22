@@ -93,7 +93,7 @@
     margin-top: 46px;
     display: flex;
     justify-content: space-between;
-    margin-top: 600px;
+    margin-top: 500px;
   }
 
   .sign-box {
@@ -115,7 +115,6 @@
 <div class="document">
 
   <div class="header">
-    <h1>City Care Hospital</h1>
     <p>Main Road, Bangalore — 560001</p>
     <p>Phone: +91 99887 66554 | Email: info@citycare.com</p>
   </div>
@@ -141,6 +140,7 @@
   // optional posted date in YYYY-MM-DD
   $appt_date = isset($_POST['date']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', $_POST['date']) ? $_POST['date'] : date('Y-m-d');
 
+
   // defaults for scheduling
   $slot_length = 20; // minutes
   $slots_per_block = 4;
@@ -150,12 +150,11 @@
   $work_end   = '17:00';
 
   // DB connection (note: database name uses underscore)
-  $conn = new mysqli("localhost", "root", "", "health_system");
+  $conn = new mysqli("localhost", "root", "", "health system");
   if ($conn->connect_error) {
       die('<div style="color:red">Connection failed: ' . htmlspecialchars($conn->connect_error) . '</div>');
   }
   $conn->set_charset('utf8mb4');
-
   // helper: generate list of candidate slot start times (H:i:s strings) for the date
   function generate_candidate_slots($date, $work_start, $work_end, $slot_length, $slots_per_block, $buffer_minutes) {
       $candidates = [];
@@ -276,6 +275,11 @@
 
   <table>
     <tr>
+      <td class="lebal">ID</td>
+      <td><?php echo htmlspecialchars($rn)?></td>
+    </tr>  
+
+    <tr>
       <td class="label">Patient Name:</td>
       <td><?php echo htmlspecialchars($name); ?></td>
     </tr>
@@ -317,8 +321,12 @@
       <span>Hospital Seal</span>
     </div>
   </div>
-
+  <center>
+    <button onclick="window.print()">PRINT</button>
+  </center>
 </div>
+<script>
 
+</script>
 </body>
 </html>

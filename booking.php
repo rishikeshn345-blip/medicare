@@ -165,7 +165,7 @@
 
   </form>
 
-  <a href="home.html" class="back">Back to Home</a>
+  <a href="search.php" class="back">Back to Home</a>
 
 </div>
 
