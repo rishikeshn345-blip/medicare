@@ -93,7 +93,7 @@
     margin-top: 46px;
     display: flex;
     justify-content: space-between;
-    margin-top: 600px;
+    margin-top: 500px;
   }
 
   .sign-box {
@@ -150,7 +150,7 @@
   $work_end   = '17:00';
 
   // DB connection (note: database name uses underscore)
-  $conn = new mysqli("localhost", "root", "", "health_system");
+  $conn = new mysqli("localhost", "root", "", "health system");
   if ($conn->connect_error) {
       die('<div style="color:red">Connection failed: ' . htmlspecialchars($conn->connect_error) . '</div>');
   }
@@ -276,6 +276,11 @@
 
   <table>
     <tr>
+      <td class="lebal">ID</td>
+      <td><?php echo htmlspecialchars($rn)?></td>
+    </tr>  
+
+    <tr>
       <td class="label">Patient Name:</td>
       <td><?php echo htmlspecialchars($name); ?></td>
     </tr>
@@ -317,8 +322,12 @@
       <span>Hospital Seal</span>
     </div>
   </div>
-
+  <center>
+    <button onclick="window.print()">PRINT</button>
+  </center>
 </div>
+<script>
 
+</script>
 </body>
 </html>
